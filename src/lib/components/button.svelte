@@ -4,7 +4,7 @@
 
     import { cva, type VariantProps } from "class-variance-authority";
 
-    const button = cva("p-1 rounded transition-colors", {
+    const button = cva("p-2 rounded transition-colors", {
         variants: {
             intent: {
                 ghost: "bg-transparent hover:bg-tx/10",
@@ -16,9 +16,9 @@
         VariantProps<typeof button> & {
             children?: Snippet;
         };
-    let { intent, children, ...props }: Props = $props();
+    let { intent, class: className, children, ...props }: Props = $props();
 </script>
 
-<button class={[button({ intent }), props.class]} {...props}>
+<button class={[button({ intent }), className]} {...props}>
     {@render children?.()}
 </button>

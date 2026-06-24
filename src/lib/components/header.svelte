@@ -1,7 +1,11 @@
 <script lang="ts">
-    import { LoaderCircleIcon, MoonIcon } from "@lucide/svelte";
+    import type { Component, Snippet } from "svelte";
+
+    import { LoaderCircleIcon, MoonIcon, type LucideProps } from "@lucide/svelte";
     import { SunIcon } from "@lucide/svelte";
     import { SparklesIcon } from "@lucide/svelte";
+    import { flip } from "svelte/animate";
+    import { fade, fly } from "svelte/transition";
 
     import Button from "./button.svelte";
 
@@ -19,17 +23,34 @@
     });
 </script>
 
-<header class="flex w-full items-center justify-between px-2">
+{#snippet themeIcon({
+    class: className,
+    icon: Icon,
+}: {
+    class?: string;
+    icon: Component<LucideProps>;
+})}
+    <span
+        class="absolute top-0 left-0"
+        in:fly={{ y: -10, duration: 200 }}
+        out:fly={{ x: 10, duration: 200 }}>
+        <Icon class={["size-6", className]} />
+    </span>
+{/snippet}
+
+<header class="flex w-full items-center justify-between p-2">
     <span></span>
     <Button intent="ghost" onclick={switchTheme}>
-        {#if theme === "light"}
-            <SunIcon class="h-6 w-6" />
-        {:else if theme === "dark"}
-            <MoonIcon class="h-6 w-6" />
-        {:else if theme === null}
-            <SparklesIcon class="h-6 w-6" />
-        {:else}
-            <LoaderCircleIcon class="h-6 w-6 animate-spin" />
-        {/if}
+        <div class="relative size-6">
+            {#if theme === "light"}
+                {@render themeIcon({ icon: SunIcon })}
+            {:else if theme === "dark"}
+                {@render themeIcon({ icon: MoonIcon })}
+            {:else if theme === null}
+                {@render themeIcon({ icon: SparklesIcon })}
+            {:else}
+                {@render themeIcon({ icon: LoaderCircleIcon, class: "animate-spin" })}
+            {/if}
+        </div>
     </Button>
 </header>
