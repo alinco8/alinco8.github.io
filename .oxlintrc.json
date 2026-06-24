@@ -1,0 +1,59 @@
+{
+  "categories": {
+    "correctness": "error",
+    "perf": "error",
+    "suspicious": "error"
+  },
+  "env": {
+    "builtin": true
+  },
+  "globals": {},
+  "ignorePatterns": [
+    "**/.wxt/",
+    "**/node_modules/"
+  ],
+  "jsPlugins": [
+    //TODO: 動いてるかわからん
+    "eslint-plugin-svelte"
+  ],
+  "options": {
+    "reportUnusedDisableDirectives": "error",
+    "typeAware": true
+  },
+  "plugins": [
+    "eslint",
+    "typescript",
+    "unicorn",
+    "react",
+    "react-perf",
+    "oxc",
+    "import",
+    "jsx-a11y",
+    "node",
+    "promise"
+  ],
+  "rules": {
+    "eslint-plugin-promise/always-return": [
+      "error",
+      {
+        "ignoreLastCallback": true
+      }
+    ],
+    "eslint/max-lines-per-function": [
+      "error",
+      {
+        "max": 100
+      }
+    ],
+    "eslint/no-await-in-loop": "off",
+    "import/no-unassigned-import": [
+      "error",
+      {
+        "allow": [
+          "**/*.css"
+        ]
+      }
+    ],
+    "react/react-in-jsx-scope": "off" // React 17以降は不要らしい
+  }
+}

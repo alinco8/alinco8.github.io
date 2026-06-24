@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": ["node_modules", ".output"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx", "*.svelte"],
+      "options": {
+        "tabWidth": 4
+      }
+    }
+  ],
+  "printWidth": 100,
+  "sortImports": {
+    "groups": [
+      "type-import",
+      ["value-builtin", "value-external"],
+      "type-internal",
+      "value-internal",
+      ["type-parent", "type-sibling", "type-index"],
+      ["value-parent", "value-sibling", "value-index"],
+      "side_effect",
+      "side_effect_style",
+      "unknown"
+    ],
+    "internalPattern": ["$lib/**", "~/**"]
+  },
+  "sortTailwindcss": true,
+  "bracketSameLine": true,
+  "svelte": true,
+  "tabWidth": 2
+}
