@@ -8,7 +8,11 @@
         variants: {
             intent: {
                 ghost: "bg-transparent hover:bg-tx/10",
+                primary: "bg-tx text-bg hover:bg-tx/90 not-disabled:cursor-pointer",
             },
+        },
+        defaultVariants: {
+            intent: "primary",
         },
     });
 

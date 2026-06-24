@@ -29,7 +29,7 @@
 
 <div class="bg-bg text-tx flex h-svh w-svw flex-col items-center transition-colors duration-300">
     <Header />
-    <main class="mt-2 flex w-full flex-1 flex-col items-center px-4">
+    <main class="mt-2 flex w-full flex-1 flex-col items-center gap-2 px-4">
         {@render children()}
     </main>
 </div>
