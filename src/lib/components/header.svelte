@@ -1,11 +1,14 @@
 <script lang="ts">
-    import type { Component, Snippet } from "svelte";
+    import type { Component } from "svelte";
 
-    import { LoaderCircleIcon, MoonIcon, type LucideProps } from "@lucide/svelte";
-    import { SunIcon } from "@lucide/svelte";
-    import { SparklesIcon } from "@lucide/svelte";
-    import { flip } from "svelte/animate";
-    import { fade, fly } from "svelte/transition";
+    import {
+        LoaderCircleIcon,
+        MoonIcon,
+        SunIcon,
+        MonitorIcon,
+        type LucideProps,
+    } from "@lucide/svelte";
+    import { fly } from "svelte/transition";
 
     import Button from "./button.svelte";
 
@@ -47,7 +50,7 @@
             {:else if theme === "dark"}
                 {@render themeIcon({ icon: MoonIcon })}
             {:else if theme === null}
-                {@render themeIcon({ icon: SparklesIcon })}
+                {@render themeIcon({ icon: MonitorIcon })}
             {:else}
                 {@render themeIcon({ icon: LoaderCircleIcon, class: "animate-spin" })}
             {/if}
