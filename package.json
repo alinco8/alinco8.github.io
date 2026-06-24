@@ -10,6 +10,8 @@
     "prepare": "svelte-kit sync 2>/dev/null; lefthook install"
   },
   "devDependencies": {
+    "@commitlint/cli": "^21.1.0",
+    "@commitlint/config-conventional": "^21.1.0",
     "@lucide/svelte": "^1.21.0",
     "@sveltejs/adapter-static": "^3.0.10",
     "@sveltejs/kit": "^2.67.0",

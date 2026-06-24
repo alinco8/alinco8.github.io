@@ -7,3 +7,6 @@ pre-commit:
       glob: "*.{js,ts,svelte}"
       run: bunx oxfmt --write {staged_files}
       stage_fixed: true
+commit-msg:
+  jobs:
+    - run: bunx commitlint --edit {1}
