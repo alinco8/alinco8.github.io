@@ -1,5 +1,5 @@
 <script lang="ts">
-    import favicon from "$lib/assets/favicon.png";
+    import { page } from "$app/state";
     import Header from "$lib/components/header.svelte";
 
     import "./layout.css";
@@ -8,7 +8,23 @@
 </script>
 
 <svelte:head>
-    <link rel="icon" href={favicon} />
+    <link rel="icon" href="/favicon.ico" />
+
+    <title>alinco8.dev</title>
+    <meta name="description" content="Making things" />
+    <link rel="canonical" href={page.url.href} />
+
+    <meta property="og:title" content="alinco8.dev" />
+    <meta property="og:description" content="Making things" />
+    <meta property="og:url" content={page.url.href} />
+    <meta property="og:image" content="https://alinco8.dev/ogp.webp" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="alinco8.dev" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="alinco8.dev" />
+    <meta name="twitter:description" content="Making things" />
+    <meta name="twitter:image" content="https://alinco8.dev/ogp.webp" />
 </svelte:head>
 
 <div
