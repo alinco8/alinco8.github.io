@@ -9,27 +9,36 @@
 
 <svelte:head>
     <link rel="icon" href="/favicon.ico" />
+    <link
+        rel="preload"
+        as="font"
+        href="/fonts/Monaspace-Argon-Var.woff2"
+        type="font/woff2"
+        crossorigin="anonymous" />
 
-    <title>alinco8.dev</title>
+    <title>alinco8</title>
     <meta name="description" content="Making things" />
     <link rel="canonical" href={page.url.href} />
 
-    <meta property="og:title" content="alinco8.dev" />
+    <meta property="og:title" content="alinco8" />
     <meta property="og:description" content="Making things" />
     <meta property="og:url" content={page.url.href} />
     <meta property="og:image" content="https://alinco8.dev/ogp.webp" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="alinco8.dev" />
+    <meta property="og:site_name" content="alinco8" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="alinco8.dev" />
+    <meta name="twitter:title" content="alinco8" />
     <meta name="twitter:description" content="Making things" />
     <meta name="twitter:image" content="https://alinco8.dev/ogp.webp" />
 </svelte:head>
 
-<div class="bg-bg text-tx flex h-svh w-svw flex-col items-center transition-colors duration-300">
+<div
+    class="bg-bg text-tx flex h-svh w-svw flex-col items-center pb-4 transition-colors duration-300">
     <Header />
-    <main class="mt-2 flex w-full flex-1 flex-col items-center gap-2 px-4">
-        {@render children()}
+    <main class="flex min-h-0 w-full flex-1 flex-col items-center gap-2 overflow-scroll px-12 pt-8">
+        <div class="w-full max-w-xl flex-1">
+            {@render children()}
+        </div>
     </main>
 </div>

@@ -15,10 +15,43 @@
     const themes = ["light", "dark", null] as const;
     let theme: (typeof themes)[number] | undefined = $state(undefined);
 
-    const switchTheme = () => {
-        if (theme === undefined) return;
+    const switchTheme = async (e: MouseEvent) => {
+        const callback = () => {
+            if (theme === undefined) return;
 
-        globalThis.setAppTheme((theme = themes[(themes.indexOf(theme) + 1) % themes.length]));
+            shouldAnimate = globalThis.setAppTheme(
+                (theme = themes[(themes.indexOf(theme) + 1) % themes.length]),
+            );
+        };
+
+        if (
+            !document.startViewTransition ||
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ) {
+            callback();
+            return;
+        }
+
+        let shouldAnimate = false;
+        const transition = document.startViewTransition(callback);
+
+        await transition.ready;
+
+        if (!shouldAnimate) return;
+
+        document.documentElement.animate(
+            {
+                clipPath: [
+                    `circle(0% at ${e.clientX}px ${e.clientY}px)`,
+                    `circle(150% at ${e.clientX}px ${e.clientY}px)`,
+                ],
+            },
+            {
+                duration: 600,
+                easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+                pseudoElement: "::view-transition-new(root)",
+            },
+        );
     };
 
     $effect(() => {
@@ -41,7 +74,7 @@
     </span>
 {/snippet}
 
-<Button intent="ghost" onclick={switchTheme}>
+<Button variant="ghost" onclick={switchTheme}>
     <div class="relative size-6">
         {#if theme === "light"}
             {@render themeIcon({ icon: SunIcon })}

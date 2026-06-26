@@ -1,25 +1,31 @@
 const darkModeQuery = matchMedia("(prefers-color-scheme: dark)");
 
 /**
- *
  * @param {"light"|"dark"} theme
+ * @returns {boolean}
  */
 const applyTheme = (theme) => {
-    document.documentElement.classList[theme === "dark" ? "add" : "remove"]("dark");
+    const isDark = theme === "dark";
+    const alreadyDark = document.documentElement.classList.contains("dark");
+
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+    return isDark !== alreadyDark;
 };
 
 /**
  * @param {"light"|"dark"|null} theme
+ * @returns {boolean}
  */
 globalThis.setAppTheme = function (theme) {
     if (theme === null) {
         localStorage.removeItem("theme");
-        applyTheme(darkModeQuery.matches ? "dark" : "light");
-        return;
+
+        return applyTheme(darkModeQuery.matches ? "dark" : "light");
     }
 
     localStorage.setItem("theme", theme);
-    applyTheme(theme);
+    return applyTheme(theme);
 };
 
 const onChange = () => {

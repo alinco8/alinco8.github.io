@@ -1,9 +1,15 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 @font-face {
-  font-family: "Monaspace Krypton";
-  src: url("/fonts/MonaspaceKryptonVar.woff2") format("woff2");
+  font-family: "Monaspace Argon";
+  src: url("/fonts/Monaspace-Argon-Var.woff2") format("woff2");
   font-weight: 200 800;
   font-style: normal;
   font-display: swap;
@@ -13,11 +19,13 @@
 
 @layer base {
   body {
-    font-family: var(--font-mono);
+    font-family: var(--font-argon);
   }
 }
 
 @theme {
+  --font-argon: "Monaspace Argon", sans-serif;
+
   --color-flexoki-black: #100f0f;
   --color-flexoki-paper: #fffcf0;
   --color-flexoki-base-50: #f2f0e5;
