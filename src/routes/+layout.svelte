@@ -36,7 +36,8 @@
 <div
     class="bg-bg text-tx flex h-svh w-svw flex-col items-center pb-4 transition-colors duration-300">
     <Header />
-    <main class="flex min-h-0 w-full flex-1 flex-col items-center gap-2 overflow-scroll px-12 pt-8">
+    <main
+        class="scrollbar-thumb-tx-3 flex min-h-0 w-full flex-1 scrollbar-track-transparent flex-col items-center gap-2 overflow-x-clip overflow-y-scroll px-12 pt-8">
         <div class="w-full max-w-xl flex-1">
             {@render children()}
         </div>
