@@ -33,8 +33,7 @@
     <meta name="twitter:image" content="https://alinco8.dev/ogp.webp" />
 </svelte:head>
 
-<div
-    class="bg-bg text-tx flex h-svh w-svw flex-col items-center pb-4 transition-colors duration-300">
+<div class="flex h-svh w-svw flex-col items-center pb-4 transition-colors duration-300">
     <Header />
     <main
         class="scrollbar-thumb-tx-3 flex min-h-0 w-full flex-1 scrollbar-track-transparent flex-col items-center gap-2 overflow-x-clip overflow-y-scroll px-12 pt-8">

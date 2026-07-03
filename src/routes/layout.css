@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-tx);
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
