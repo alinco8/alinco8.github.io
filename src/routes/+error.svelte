@@ -1,6 +1,6 @@
 <script>
+    import Button from "#lib/components/button.svelte";
     import { page } from "$app/state";
-    import Button from "$lib/components/button.svelte";
 </script>
 
 <div class="flex h-full w-full flex-col items-center justify-center gap-4">

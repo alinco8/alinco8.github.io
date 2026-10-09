@@ -1,6 +1,6 @@
 <script lang="ts">
+    import Header from "#lib/components/header.svelte";
     import { page } from "$app/state";
-    import Header from "$lib/components/header.svelte";
 
     import "./layout.css";
 
@@ -37,7 +37,7 @@
     <Header />
     <main
         class="scrollbar-thumb-tx-3 flex min-h-0 w-full flex-1 scrollbar-track-transparent flex-col items-center gap-2 overflow-x-clip overflow-y-scroll px-12 pt-8">
-        <div class="w-full max-w-xl flex-1">
+        <div class="w-full max-w-xl flex-1 text-base/relaxed">
             {@render children()}
         </div>
     </main>

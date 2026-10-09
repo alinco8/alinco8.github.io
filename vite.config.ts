@@ -16,11 +16,6 @@ export default defineConfig({
             adapter: adapterStatic({
                 fallback: "404.html",
             }),
-            typescript: {
-                config(config) {
-                    config.include = (config.include ?? []).concat(["../static/theme.js"]);
-                },
-            },
         }),
     ],
 });

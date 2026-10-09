@@ -1,7 +1,7 @@
-import type { Handle } from "@sveltejs/kit";
+import type { Handle } from "@sveltejs/kit/hooks";
 
 // src/hooks.server.ts
-import themeSource from "$lib/theme.js?raw";
+import themeSource from "#lib/theme.js?raw";
 import { rolldown } from "rolldown";
 
 const virtualModuleId = "virtual:theme";
